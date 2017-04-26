@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
 
+import com.udacity.stockhawk.HelperClass;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.StockHawkApp;
 
@@ -24,6 +25,7 @@ public class SplashActivity extends Activity {
             }
         }, 3000);
 
+    new HelperClass().setStatusBarColor(this);
     }
 
 }

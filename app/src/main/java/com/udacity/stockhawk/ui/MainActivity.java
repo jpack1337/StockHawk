@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.udacity.stockhawk.HelperClass;
 import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
@@ -81,7 +82,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         }).attachToRecyclerView(stockRecyclerView);
 
-
+        if(!networkUp()){
+            new HelperClass().showPromptToUser(MainActivity.this, "Network Unavailable", getResources().getString(R.string.no_network_detected), getResources().getString(R.string.dialog_positive));
+        }
     }
 
     private boolean networkUp() {
@@ -186,4 +189,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
